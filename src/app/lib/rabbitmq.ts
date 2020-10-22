@@ -13,7 +13,13 @@ class RabbitMQ{
     }
 
     closeConnection(){
-       this.connection.close();
+        setTimeout(()=>{
+            this.connection.close();
+        },500);
+    }
+
+    Message(msg):Amqp.Message{
+        return new Amqp.Message(msg);
     }
 
     sendMessage(msg,exchange){
